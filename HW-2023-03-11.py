@@ -1,4 +1,7 @@
 
+symbols = ('@', '.', '!', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9')
+
+
 def person(email, password):
     return {
         'email': email,
@@ -11,26 +14,37 @@ def registration():
     return []
 
 
-symbols = ('@', '.', '!', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9')
-
-for
-
-
-def validation(person, arr):
+def validation(person, list):
     email, password, *args = person.values()
-    rules_email =
-    not in email,
-        '.' not in email,
-    }
-    rules_password = len(password) < 6 or password.find('!') == -1
+    global symbols
+    for i in symbols[0:2]:
+        if i not in email:
+            rules_email = True
+        else:
+            rules_email = False
+    for j in symbols:
+        if len(password) < 6:
+            rules_password = True
+        if j not in password:
+            rules_password = True
+        else:
+            rules_password = False
     if rules_email or rules_password:
         raise TypeError("Invalid data")
-    arr.append(person)
+    list.append(person)
     return True
 
 
 registred = registration()
 
-oleksii = person("oleksii@i.ua", "123!987")
+oleksii = person("oleksiii.ua", "01234569")
+
+is_valid = validation(oleksii, registred)
+
+if is_valid:
+    print(registred)
+    print('________')
+    for person in registred:
+        print(person['email'])
 
 oleksii['greeting'](oleksii['email'])
